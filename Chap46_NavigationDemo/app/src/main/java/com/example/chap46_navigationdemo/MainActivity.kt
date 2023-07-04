@@ -34,7 +34,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(){
 
-
 }
 
 @Preview(showBackground = true)
