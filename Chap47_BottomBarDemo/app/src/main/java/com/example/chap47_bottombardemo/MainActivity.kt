@@ -4,12 +4,26 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.example.chap47_bottombardemo.screens.Contacts
+import com.example.chap47_bottombardemo.screens.Favorites
+import com.example.chap47_bottombardemo.screens.Home
 import com.example.chap47_bottombardemo.ui.theme.Chap47_BottomBarDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,8 +46,52 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun MainScreen(){
+fun MainScreen() {
+    val navController = rememberNavController()
 
+}
+
+@Composable
+fun NavigationHost(navController: NavHostController) {
+    NavHost(navController = navController, startDestination = NavRoutes.Home.route) {
+        composable(NavRoutes.Home.route) {
+            Home()
+        }
+
+        composable(NavRoutes.Contacts.route) {
+            Contacts()
+        }
+
+        composable(NavRoutes.Favorites.route) {
+            Favorites()
+        }
+    }
+}
+
+//내비게이션 바 디자인하기
+@Composable
+fun BottomNavigationBar(navController: NavHostController) {
+    BottomNavigation {
+        val backStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoutes = backStackEntry?.destination?.route
+
+        NavBarItems.BarItems.forEach { navItem ->
+            BottomNavigationItem(
+                selected = currentRoutes == navItem.route,
+                onClick = {
+                    navController.navigate(navItem.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                icon = { Icon(imageVector = navItem.image, contentDescription = navItem.title) },
+                label = { Text(text = navItem.title)}
+                )
+        }
+    }
 
 }
 
@@ -41,7 +99,6 @@ fun MainScreen(){
 @Composable
 fun GreetingPreview() {
     Chap47_BottomBarDemoTheme {
-
         MainScreen()
     }
 }
