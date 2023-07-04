@@ -24,7 +24,10 @@ fun Welcome(navController: NavController, userName : String?){
 
             Spacer(modifier = Modifier.size(30.dp))
 
-            Button(onClick = { navController.navigate(NavRoutes.Profile.route)}){
+            Button(onClick = { navController.navigate(NavRoutes.Profile.route){
+                //프로파일에서 뒤로가면 바로 홈 화면으로 이동하기.
+                popUpTo(NavRoutes.Home.route)
+            } }){
                 Text(text = "Set up your profile")
             }
         }
