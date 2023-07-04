@@ -10,6 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.chap46_navigationdemo.screens.Home
+import com.example.chap46_navigationdemo.screens.Profile
+import com.example.chap46_navigationdemo.screens.Welcome
 import com.example.chap46_navigationdemo.ui.theme.Chap46_NavigationDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,9 +37,24 @@ class MainActivity : ComponentActivity() {
 
 
 //메인 스크린 컴포저블 함수
+//경로 추가하기
 @Composable
 fun MainScreen(){
+    val navController = rememberNavController()
 
+    NavHost(navController = navController, startDestination = NavRoutes.Home.route){
+        composable(NavRoutes.Home.route){
+            Home(navController = navController)
+        }
+
+        composable(NavRoutes.Welcome.route){
+            Welcome(navController = navController)
+        }
+
+        composable(NavRoutes.Profile.route){
+            Profile()
+        }
+    }
 }
 
 @Preview(showBackground = true)
