@@ -13,17 +13,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.chap46_navigationdemo.NavRoutes
 
 @Composable
-fun Welcome(navController: NavController){
+fun Welcome(navController: NavController, userName : String?){
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = "Welcome", style = MaterialTheme.typography.headlineMedium)
+            Text(text = "Welcome $userName", style = MaterialTheme.typography.headlineMedium)
 
             Spacer(modifier = Modifier.size(30.dp))
 
-            Button(onClick = {}){
+            Button(onClick = { navController.navigate(NavRoutes.Profile.route)}){
                 Text(text = "Set up your profile")
             }
         }
