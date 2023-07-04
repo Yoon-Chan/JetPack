@@ -22,25 +22,25 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    MainScreen()
                 }
             }
         }
     }
 }
 
+
+//메인 스크린 컴포저블 함수
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun MainScreen(){
+
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     Chap46_NavigationDemoTheme {
-        Greeting("Android")
+        MainScreen()
     }
 }
