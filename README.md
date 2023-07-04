@@ -29,7 +29,11 @@ https://github.com/Yoon-Chan/JetPack/assets/56026214/91500dab-4d54-42a5-88d9-a55
 
 | Home | Contacts | Favorites |
 | ---- | -------- | --------- |
-|      |          |           |
+|    <img width="442" alt="image" src="https://github.com/Yoon-Chan/JetPack/assets/56026214/89fe4e54-9b46-4184-b4bd-555e4d82313c"> |  <img width="432" alt="image" src="https://github.com/Yoon-Chan/JetPack/assets/56026214/2de2ca56-4c89-4658-83d7-cdeaeb11cfd4">|    <img width="436" alt="image" src="https://github.com/Yoon-Chan/JetPack/assets/56026214/98d6540c-2c73-4a27-a1f9-dc7397f9aeab">|
 
+### 실행 영상
 
+https://github.com/Yoon-Chan/JetPack/assets/56026214/7f51232b-0571-4db9-9a02-6cd452648a42
+
+---
 
