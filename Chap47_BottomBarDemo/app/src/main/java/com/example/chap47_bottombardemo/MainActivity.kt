@@ -1,18 +1,25 @@
 package com.example.chap47_bottombardemo
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.contentColorFor
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -45,10 +52,17 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
 
+    Scaffold(
+        topBar = { TopAppBar(title = { Text(text = "Bottom Navigation Demo")})},
+        content = { NavigationHost(navController = navController)},
+        bottomBar = { BottomNavigationBar(navController = navController)}
+    )
 }
 
 @Composable
@@ -87,8 +101,8 @@ fun BottomNavigationBar(navController: NavHostController) {
                         restoreState = true
                     }
                 },
-                icon = { Icon(imageVector = navItem.image, contentDescription = navItem.title) },
-                label = { Text(text = navItem.title)}
+                icon = { Icon(imageVector = navItem.image, contentDescription = navItem.title ) },
+                label = { Text(text = navItem.title)},
                 )
         }
     }
