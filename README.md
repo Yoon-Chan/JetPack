@@ -21,3 +21,8 @@ https://github.com/Yoon-Chan/JetPack/assets/56026214/91500dab-4d54-42a5-88d9-a55
 
 ---
 
+## Chap47 하단 내비게이션바 기능 구현
+
+3개의 하단 내비게이션 바를 만들고 클릭시 해당 내비게이션 바의 화면 이동하도록 하는 기능을 구현
+
+3개 내비게이션 Home, contacts, Favorite

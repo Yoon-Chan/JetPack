@@ -18,7 +18,7 @@ object NavBarItems {
             route = "contacts"
         ),
         BarItem(
-            title = "Home",
+            title = "Favorites",
             image = Icons.Filled.Favorite,
             route = "favorites"
         )
