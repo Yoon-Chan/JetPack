@@ -35,6 +35,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
@@ -83,7 +84,9 @@ fun MainScreen() {
     //MultiTouchDemo()
 
     //7. 회전 제스처 감지하기
-    MultiTouchDemo2()
+    //MultiTouchDemo2()
+
+    //8.변환 제스처 감지
 }
 
 @Composable
@@ -131,8 +134,51 @@ fun MultiTouchDemo2(){
                 .graphicsLayer(
                     scaleX = scale,
                     scaleY = scale,
-                    //추가된 부분
+                    //추가된 부볂
                     rotationZ = angle
+                )
+                .transformable(state = state)
+                .background(Color.Blue)
+                .size(100.dp))
+    }
+}
+
+@Composable
+fun MultiTouchDemo3(){
+    var scale by remember {
+        mutableStateOf(1f)
+    }
+
+    //추가된 부분
+    var angle by remember { mutableStateOf(0f ) }
+
+    //변환 제스처 추가
+    var offset by remember {
+        mutableStateOf(Offset.Zero)
+    }
+
+    val state = rememberTransformableState{ scaleChange, offsetChange, rotationChange ->
+        scale *= scaleChange
+
+        //추가된 부분
+        angle += rotationChange
+
+        //변환 제스처 추가
+        offset += offsetChange
+    }
+
+    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()){
+        Box(
+            Modifier
+                .graphicsLayer(
+                    scaleX = scale,
+                    scaleY = scale,
+                    //추가된 부분
+                    rotationZ = angle,
+
+                    //변환 값 변경 추가
+                    rotationX = offset.x,
+                    rotationY = offset.y
                 )
                 .transformable(state = state)
                 .background(Color.Blue)
