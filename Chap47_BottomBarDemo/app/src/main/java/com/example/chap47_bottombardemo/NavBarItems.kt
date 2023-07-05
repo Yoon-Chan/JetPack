@@ -23,5 +23,4 @@ object NavBarItems {
             route = "favorites"
         )
     )
-
 }

@@ -43,7 +43,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
                     MainScreen()
                 }
             }
@@ -106,7 +105,6 @@ fun BottomNavigationBar(navController: NavHostController) {
                 )
         }
     }
-
 }
 
 @Preview(showBackground = true)
