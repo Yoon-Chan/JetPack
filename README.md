@@ -43,19 +43,21 @@ https://github.com/Yoon-Chan/JetPack/assets/56026214/7f51232b-0571-4db9-9a02-6cd
 
 | 클릭(clickable) | 클린(PointInputScope) | 드래그(draggable) |
 | --------------- | --------------------- | ----------------- |
-|                 |                       |                   |
+|      https://github.com/Yoon-Chan/JetPack/assets/56026214/22780ef8-7acf-4559-9485-39ab33fcd3d8     |      https://github.com/Yoon-Chan/JetPack/assets/56026214/8cbf4f73-d689-411e-a348-db589d1c5975                 |        https://github.com/Yoon-Chan/JetPack/assets/56026214/9b45c541-5c0c-41ec-904f-67233efc972d           |
+
+
 
 
 
 | 드래그(PointInputScope) | Scrollable | 확대/축소 |
 | ----------------------- | ---------- | --------- |
-|                         |            |           |
+| https://github.com/Yoon-Chan/JetPack/assets/56026214/730889ac-02cf-4ac8-a8c6-7d3c62e69085 |     https://github.com/Yoon-Chan/JetPack/assets/56026214/e84c1c43-2cbf-44ae-b0bc-60274beac5c9       | https://github.com/Yoon-Chan/JetPack/assets/56026214/e2395563-6bd1-4fa6-82ab-40dc49c46d4b    |
 
 
 
-| 회전 | 변환 |
+| 회전 | .. |
 | ---- | ---- |
-|      |      |
+| https://github.com/Yoon-Chan/JetPack/assets/56026214/7ac06d01-fdfc-4a35-8d77-52a2084b4274     |      |
 
 ---
 
