@@ -80,7 +80,10 @@ fun MainScreen() {
     //ScrollableModifier()
 
     //6. 확대/축소 사용 예제
-    MultiTouchDemo()
+    //MultiTouchDemo()
+
+    //7. 회전 제스처 감지하기
+    MultiTouchDemo2()
 }
 
 @Composable
@@ -106,6 +109,36 @@ fun MultiTouchDemo(){
     }
 }
 
+@Composable
+fun MultiTouchDemo2(){
+    var scale by remember {
+        mutableStateOf(1f)
+    }
+
+    //추가된 부분
+    var angle by remember { mutableStateOf(0f ) }
+
+    val state = rememberTransformableState{ scaleChange, offsetChange, rotationChange ->
+        scale *= scaleChange
+
+        //추가된 부분
+        angle += rotationChange
+    }
+
+    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()){
+        Box(
+            Modifier
+                .graphicsLayer(
+                    scaleX = scale,
+                    scaleY = scale,
+                    //추가된 부분
+                    rotationZ = angle
+                )
+                .transformable(state = state)
+                .background(Color.Blue)
+                .size(100.dp))
+    }
+}
 
 
 @Composable
