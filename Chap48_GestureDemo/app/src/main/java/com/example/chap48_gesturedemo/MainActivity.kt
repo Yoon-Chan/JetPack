@@ -1,11 +1,13 @@
 package com.example.chap48_gesturedemo
 
+import android.graphics.Point
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
@@ -63,7 +65,36 @@ fun MainScreen() {
     //TapPressDemo()
 
     //3. Modifier.draggable()을 이용한 드래그 제스처 감지하기
-    DragDemo()
+    //DragDemo()
+
+    //4. PointerInput의 detectDragGestures을 이용항 드래그 x,y축 움직이기
+    PointerInputDrag()
+
+}
+
+@Composable
+fun PointerInputDrag(){
+    Box(modifier = Modifier.fillMaxSize()){
+        var xOffset by remember {
+            mutableStateOf(0f)
+        }
+
+        var yOffset by remember {
+            mutableStateOf(0f)
+        }
+
+        Box(modifier = Modifier
+            .offset { IntOffset(xOffset.roundToInt(), yOffset.roundToInt()) }
+            .size(100.dp)
+            .background(Color.Blue)
+            .pointerInput(Unit) {
+                detectDragGestures { _, dragAmount ->
+                    xOffset += dragAmount.x
+                    yOffset += dragAmount.y
+                }
+            }
+        )
+    }
 
 }
 
