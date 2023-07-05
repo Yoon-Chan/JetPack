@@ -12,7 +12,9 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.rememberTransformableState
 import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.gestures.transformable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -34,6 +36,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
@@ -74,8 +77,36 @@ fun MainScreen() {
     //PointerInputDrag()
 
     //5. scrollable 모디파이어를 이용해보기
-    ScrollableModifier()
+    //ScrollableModifier()
+
+    //6. 확대/축소 사용 예제
+    MultiTouchDemo()
 }
+
+@Composable
+fun MultiTouchDemo(){
+    var scale by remember {
+        mutableStateOf(1f)
+    }
+
+    val state = rememberTransformableState{ scaleChange, offsetChange, rotationChange ->
+        scale *= scaleChange
+    }
+
+    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()){
+        Box(
+            Modifier
+                .graphicsLayer(
+                    scaleX = scale,
+                    scaleY = scale
+                )
+                .transformable(state = state)
+                .background(Color.Blue)
+                .size(100.dp))
+    }
+}
+
+
 
 @Composable
 fun ScrollableModifier() {
