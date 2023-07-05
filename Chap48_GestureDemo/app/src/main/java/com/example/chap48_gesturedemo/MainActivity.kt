@@ -11,6 +11,8 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +22,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -68,13 +71,40 @@ fun MainScreen() {
     //DragDemo()
 
     //4. PointerInput의 detectDragGestures을 이용항 드래그 x,y축 움직이기
-    PointerInputDrag()
+    //PointerInputDrag()
+
+    //5. scrollable 모디파이어를 이용해보기
+    ScrollableModifier()
+}
+
+@Composable
+fun ScrollableModifier() {
+    var offset by remember {
+        mutableStateOf(0f)
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .scrollable(
+                orientation = Orientation.Vertical,
+                state = rememberScrollableState { distance ->
+                    offset += distance
+                    distance
+                })
+    ) {
+        Box(modifier = Modifier
+            .size(90.dp)
+            .offset { IntOffset(0, offset.roundToInt()) }
+            .background(Color.Red))
+    }
+
 
 }
 
 @Composable
-fun PointerInputDrag(){
-    Box(modifier = Modifier.fillMaxSize()){
+fun PointerInputDrag() {
+    Box(modifier = Modifier.fillMaxSize()) {
         var xOffset by remember {
             mutableStateOf(0f)
         }
@@ -99,8 +129,8 @@ fun PointerInputDrag(){
 }
 
 @Composable
-fun DragDemo(){
-    Box(modifier = Modifier.fillMaxSize()){
+fun DragDemo() {
+    Box(modifier = Modifier.fillMaxSize()) {
         var xOffset by remember {
             mutableStateOf(0f)
         }
