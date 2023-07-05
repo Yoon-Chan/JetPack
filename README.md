@@ -38,22 +38,21 @@ https://github.com/Yoon-Chan/JetPack/assets/56026214/7f51232b-0571-4db9-9a02-6cd
 ---
 
 ## Chap48 제스처 관리하기
-
 다양한 제스처를 이용하여 간단한 예제를 통해 사용방법을 익히기 위해 만든 예제
 
 #### 클릭(click)
-
+https://github.com/Yoon-Chan/JetPack/assets/56026214/aa00c464-f870-4a3c-b221-e1829a29a04a
 #### 클릭(PointInputScope)
-
+https://github.com/Yoon-Chan/JetPack/assets/56026214/9b65789a-532c-4a56-a128-ca1efe7b6a13
 #### 드래그(draggable)
-
+https://github.com/Yoon-Chan/JetPack/assets/56026214/179137aa-b50a-4a58-b622-7942247c5fd4
 #### 드래그(PointInputScope)
-
+https://github.com/Yoon-Chan/JetPack/assets/56026214/4eae354a-7c12-4854-86cb-3d791ed78aa4
 #### Scrollable
-
+https://github.com/Yoon-Chan/JetPack/assets/56026214/e69301c8-6329-4266-8136-542df5b9c772
 #### 확대/축소
-
+https://github.com/Yoon-Chan/JetPack/assets/56026214/79626fbb-0611-43b9-89b1-4632898209f1
 #### 회전
-
+https://github.com/Yoon-Chan/JetPack/assets/56026214/c82fac3d-af45-4bef-9979-2ed362f2ac16
 ---
 
